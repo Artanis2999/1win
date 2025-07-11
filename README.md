@@ -1,0 +1,2 @@
+# 1win
+gambling bot
