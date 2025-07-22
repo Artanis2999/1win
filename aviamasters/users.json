@@ -1,0 +1,50 @@
+{
+    "users": [
+        {
+            "id": 7951753326,
+            "name": "maboy arbitrazh",
+            "username": "maboy_arbitrazh",
+            "reg": true,
+            "dep": true,
+            "admin": true,
+            "amount": 0,
+            "stage": "deposit"
+        },
+        {
+            "id": 1443519061,
+            "name": "Artanis",
+            "username": "Artanis2999",
+            "reg": false,
+            "dep": false,
+            "admin": false,
+            "amount": 0
+        },
+        {
+            "id": 1428975171,
+            "name": "m",
+            "username": "ababa_ababa",
+            "reg": false,
+            "dep": false,
+            "admin": false,
+            "amount": 0
+        },
+        {
+            "id": 6278733656,
+            "name": "igor narizhniy",
+            "username": "igornarizh",
+            "reg": false,
+            "dep": false,
+            "admin": false,
+            "amount": 0
+        },
+        {
+            "id": 7043864813,
+            "name": "Maboy поддержка",
+            "username": "maboy_poderzhka",
+            "reg": false,
+            "dep": false,
+            "admin": false,
+            "amount": 0
+        }
+    ]
+}

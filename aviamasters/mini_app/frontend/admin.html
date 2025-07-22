@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url("background.png") no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 90%;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      margin: 10px 0;
+      width: 100%;
+      max-width: 250px;
+    }
+    button {
+      background-color: #ffd700;
+      color: black;
+      cursor: pointer;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- STEP 0: Admin Inputs -->
+  <div class="container" id="adminStep">
+    <h2>🛠 Ввод данных</h2>
+    <input type="number" id="gamesLeftInput" placeholder="Осталось игр (напр. 21)">
+    <input type="text" id="multiplierInput" placeholder="Множитель (напр. X45.6)">
+    <input type="text" id="chanceInput" placeholder="Шанс (напр. 86%)">
+    <button onclick="goToBet()">Далее</button>
+  </div>
+
+  <!-- STEP 1: Bet Input -->
+  <div class="container hidden" id="betStep">
+    <h2>Введите сумму ставки</h2>
+    <input type="number" id="betInput" placeholder="">
+    <button onclick="startAnalysis()">Подтвердить</button>
+  </div>
+
+  <!-- STEP 2: Loading -->
+  <div class="container hidden" id="loadingStep">
+    <p>🔍 Выполняется анализ...</p>
+  </div>
+
+  <!-- STEP 3: Result -->
+  <div class="container hidden" id="resultStep">
+    <p>🎯 Осталось игр: <span id="resGames"></span></p>
+    <p>📈 Целевой множитель: <span id="resMultiplier"></span></p>
+    <p>🎲 Шанс сработать: <span id="resChance"></span></p>
+    <button onclick="location.reload()">🔁 Начать заново</button>
+  </div>
+
+  <script>
+    let stored = {};
+
+    function goToBet() {
+      const g = document.getElementById("gamesLeftInput").value;
+      const m = document.getElementById("multiplierInput").value;
+      const c = document.getElementById("chanceInput").value;
+
+      if (!g || !m || !c) return alert("Заполните все поля");
+
+      stored = { games: g, mult: m, chance: c };
+
+      document.getElementById("adminStep").classList.add("hidden");
+      document.getElementById("betStep").classList.remove("hidden");
+    }
+
+    function startAnalysis() {
+      const bet = document.getElementById("betInput").value;
+      if (!bet || bet <= 0) return alert("Введите корректную ставку");
+
+      document.getElementById("betStep").classList.add("hidden");
+      document.getElementById("loadingStep").classList.remove("hidden");
+
+      setTimeout(() => {
+        document.getElementById("resGames").textContent = stored.games;
+        document.getElementById("resMultiplier").textContent = stored.mult;
+        document.getElementById("resChance").textContent = stored.chance;
+
+        document.getElementById("loadingStep").classList.add("hidden");
+        document.getElementById("resultStep").classList.remove("hidden");
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>

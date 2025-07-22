@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анализ игры</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url("background.png") no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 90%;
+    }
+    .logo {
+      max-width: 180px;
+      margin-bottom: 20px;
+    }
+    input[type="number"] {
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      width: 100%;
+      max-width: 200px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ffd700;
+      color: black;
+      cursor: pointer;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container" id="step1">
+    <img src="logo.png" class="logo" alt="logo">
+    <p>Введите сумму ставки:</p>
+    <input type="number" id="betInput" min="1" placeholder="Например, 100">
+    <button onclick="startAnalysis()">Подтвердить</button>
+  </div>
+
+  <div class="container hidden" id="step2">
+    <p>🔍 Выполняется анализ...</p>
+  </div>
+
+  <div class="container hidden" id="step3">
+    <p>🎯 Осталось игр: <span id="gamesLeft"></span></p>
+    <p>📈 Целевой множитель: <span id="multiplier"></span></p>
+    <p>🎲 Шанс сработать: <span id="chance"></span></p>
+    <button onclick="location.reload()">🔁 Попробовать снова</button>
+  </div>
+
+  <script>
+    function startAnalysis() {
+      const bet = document.getElementById("betInput").value;
+      if (!bet || bet <= 0) return alert("Введите корректную сумму");
+
+      document.getElementById("step1").classList.add("hidden");
+      document.getElementById("step2").classList.remove("hidden");
+
+      setTimeout(() => {
+        const gamesLeft = Math.floor(Math.random() * 11 + 15); // 15–25
+        const multiplier = "X" + (Math.random() * 50 + 20).toFixed(1); // X20.0–X70.0
+        const chance = (Math.random() * 20 + 75).toFixed(1) + "%"; // 75–95%
+
+        document.getElementById("gamesLeft").textContent = gamesLeft;
+        document.getElementById("multiplier").textContent = multiplier;
+        document.getElementById("chance").textContent = chance;
+
+        document.getElementById("step2").classList.add("hidden");
+        document.getElementById("step3").classList.remove("hidden");
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

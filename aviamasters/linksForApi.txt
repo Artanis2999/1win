@@ -1,0 +1,21 @@
+https://api.telegram.org/bot7968528092:AAFHSqYbotQH5aNrz6VfN8HuksBuS0keLSI/getUpdates
+
+
+https://api.telegram.org/bot7968528092:AAFHSqYbotQH5aNrz6VfN8HuksBuS0keLSI/sendMessage?chat_id=1443519061&text=test
+
+
+
+https://api.telegram.org/bot7968528092:AAFHSqYbotQH5aNrz6VfN8HuksBuS0keLSI/getUpdates
+
+
+https://api.telegram.org/bot7968528092:AAFHSqYbotQH5aNrz6VfN8HuksBuS0keLSI/sendMessage?chat_id=-1002777437965&text=REG;UZ:{sub1}
+
+id channel with postbacks -1002777437965
+
+
+1win partners credentials
+fxsbjiue@streetwormail.com
+1029384756Ten_
+
+
+https://api.telegram.org/bot7968528092:AAFHSqYbotQH5aNrz6VfN8HuksBuS0keLSI/sendMessage?chat_id=-1002777437965&text=DEP;UZ:{sub1}
