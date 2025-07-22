@@ -348,31 +348,54 @@ async def check_subscription(callback: types.CallbackQuery):
         logging.error(f"Subscription error: {e}")
         await callback.answer(translations["check_error"], show_alert=True)
 
-@dp.message(lambda message: message.text in [TRANSLATIONS[lang]["reg"] for lang in LANGUAGES] + [TRANSLATIONS[lang]["instr"] for lang in LANGUAGES] + [TRANSLATIONS[lang]["support"] for lang in LANGUAGES] + [TRANSLATIONS[lang]["algo"] for lang in LANGUAGES])
-async def process_menu_buttons(message: types.Message):
+
+@dp.message(lambda message: message.text in [TRANSLATIONS[lang]["reg"] for lang in LANGUAGES])
+async def process_registration_button(message: types.Message):
     user_id = message.from_user.id
     lang = user_data.get(user_id, {}).get("lang", "en")
-    
-    # Удаляем сообщение главного меню
     last_message_id = user_data.get(user_id, {}).get("last_message_id")
     if last_message_id:
         try:
-              # Задержка 2 секунды
             await bot.delete_message(chat_id=user_id, message_id=last_message_id)
         except Exception as e:
             logging.error(f"Error deleting main menu message: {e}")
-    
-    # Удаляем само сообщение с нажатой кнопкой
-      # Задержка 2 секунды
     await bot.delete_message(chat_id=user_id, message_id=message.message_id)
-    
-    # Если нажата кнопка регистрации
-    if message.text in [TRANSLATIONS[lang]["reg"] for lang in LANGUAGES]:
-        user_data[user_id]["last_message_id"] = await show_registration(user_id, lang, user_id=user_id)
-        user_data[user_id]["last_stage"] = "registration"
-    else:
-        # Для других кнопок можно добавить соответствующую логику
-        user_data[user_id]["last_message_id"] = await show_main_menu(user_id, lang)
+    user_data[user_id]["last_message_id"] = await show_registration(user_id, lang, user_id=user_id)
+    user_data[user_id]["last_stage"] = "registration"
+
+@dp.message(lambda message: message.text in [TRANSLATIONS[lang]["algo"] for lang in LANGUAGES])
+async def process_algo_button(message: types.Message):
+    user_id = message.from_user.id
+    lang = user_data.get(user_id, {}).get("lang", "en")
+    last_message_id = user_data.get(user_id, {}).get("last_message_id")
+    if last_message_id:
+        try:
+            await bot.delete_message(chat_id=user_id, message_id=last_message_id)
+        except Exception as e:
+            logging.error(f"Error deleting main menu message: {e}")
+    await bot.delete_message(chat_id=user_id, message_id=message.message_id)
+    user_data[user_id]["last_message_id"] = await show_main_menu(user_id, lang)
+
+@dp.message(lambda message: message.text in [TRANSLATIONS[lang]["instr"] for lang in LANGUAGES])
+async def process_instruction(message: types.Message):
+    print("testtttt")
+    user_id = message.from_user.id
+    lang = user_data.get(user_id, {}).get("lang", "en")
+    translations = TRANSLATIONS.get(lang, TRANSLATIONS["en"])
+    builder = ReplyKeyboardBuilder()
+    builder.row(
+        types.KeyboardButton(text=translations.get("reg", "📝 Registration")),
+        types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
+    )
+    builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
+    builder.row(types.KeyboardButton(
+        text="🚀 Получить сигнал",
+        web_app=WebAppInfo(url="https://avia1win.netlify.app/frontend")
+    ))
+    await message.answer(
+        translations.get("instructions", "Инструкция недоступна"),
+        reply_markup=builder.as_markup(resize_keyboard=True)
+    )
 
 @dp.message(lambda message: message.text in [TRANSLATIONS[lang]["back"] for lang in LANGUAGES])
 async def process_back(message: types.Message):
@@ -404,3 +427,49 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())  
+
+@dp.message(lambda message: message.text in [TRANSLATIONS[lang]["instr"] for lang in LANGUAGES])
+async def process_instruction(message: types.Message):
+    print("testtttt")
+    user_id = message.from_user.id
+    lang = user_data.get(user_id, {}).get("lang", "en")
+    translations = TRANSLATIONS.get(lang, TRANSLATIONS["en"])
+
+    builder = ReplyKeyboardBuilder()
+    builder.row(
+        types.KeyboardButton(text=translations.get("reg", "📝 Registration")),
+        types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
+    )
+    builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
+    builder.row(types.KeyboardButton(
+        text="🚀 Получить сигнал",
+        web_app=WebAppInfo(url="https://avia1win.netlify.app/frontend")
+    ))
+
+    await message.answer(
+        translations.get("instructions", "Инструкция недоступна"),
+        reply_markup=builder.as_markup(resize_keyboard=True)
+    )
+
+
+@dp.message(lambda message: message.text in [TRANSLATIONS[lang]["support"] for lang in LANGUAGES])
+async def process_support(message: types.Message):
+    user_id = message.from_user.id
+    lang = user_data.get(user_id, {}).get("lang", "en")
+    translations = TRANSLATIONS.get(lang, TRANSLATIONS["en"])
+
+    builder = ReplyKeyboardBuilder()
+    builder.row(
+        types.KeyboardButton(text=translations.get("reg", "📝 Registration")),
+        types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
+    )
+    builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
+    builder.row(types.KeyboardButton(
+        text="🚀 Получить сигнал",
+        web_app=WebAppInfo(url="https://avia1win.netlify.app/frontend")
+    ))
+
+    await message.answer(
+        translations.get("instructions", "Инструкция недоступна"),
+        reply_markup=builder.as_markup(resize_keyboard=True)
+    )

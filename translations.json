@@ -15,7 +15,8 @@
         "next": "➡️ Next",
         "back": "⬅️ Back",
         "registration_message": "👑 Hello! To activate the bot, complete a quick registration on the 1WIN website (<a href=\"PERSONAL_LINK\">CLICK</a>)\n\n⚠️ It’s important to create a NEW account using the link in this message! Use a phone number that hasn’t been used on this site before, and do not use social media accounts. If you already have a 1WIN account, please log out.\n\n1. Click the button: <a href=\"PERSONAL_LINK\">Register</a> in incognito mode, go to the 1WIN website and CREATE A NEW ACCOUNT. If the site doesn’t open, try using a VPN: Vpnify, Planet VPN, Hotspot VPN, etc.",
-        "dep": "👑Before starting, you need to top up your account balance. I recommend topping up with at least 2,000 rubles."
+        "dep": "👑Before starting, you need to top up your account balance. I recommend topping up with at least 2,000 rubles.",
+        "instructions": "🤖The bot is powered by a clustered OpenAI neural network!\n⚜️Trained on 🎰30,000 games.\n\nUsers are generating 15-25% ROI daily!\n\nAccuracy: 92%. To profit, follow our signals.\n\nSubscribe, register with our promo code, hit 'Get Signal' — profit hard 👑\n\n❗️No access without registration and promo code❗️"
     },
     "ru": {
         "welcome": "Добро пожаловать! Пожалуйста, выберите язык:",
@@ -33,7 +34,8 @@
         "next": "➡️ Далее",
         "back": "⬅️ Назад",
         "registration_message": "👑 Привет! Для активации бота пройди быструю регистрацию на сайте 1WIN (<a href=\"PERSONAL_LINK\">КЛИК</a>)\n\n⚠️ Важно создать НОВЫЙ аккаунт по ссылке в этом сообщении! Используй номер телефона, который ранее не использовался на этом сайте, и не используй социальные сети. Если у тебя уже есть акаунт на 1WIN, выйди из него.\n\n1. Нажми на кнопку: <a href=\"PERSONAL_LINK\">Зарегистрироваться</a> в режиме инкогнито, перейди на сайт 1WIN и СОЗДАЙ НОВЫЙ АККАУНТ. Если сайт не открывается, попробуй использовать VPN: Vpnify, Planet VPN, Hotspot VPN и так далее!",
-        "dep": "👑Перед стартом необходимо пополнить баланс своего аккаунта. Рекомендую пополнять от 2000 рублей."
+        "dep": "👑Перед стартом необходимо пополнить баланс своего аккаунта. Рекомендую пополнять от 2000 рублей.",
+        "instructions": "🤖Бот основан и обучен на кластерной нейронной сети OpenAI!\n⚜️Для обучения бота было сыграно 🎰30,000 игр.\n\nВ настоящее время пользователи бота успешно генерируют 15-25% от своего 💸 капитала ежедневно!\n\nБот все еще проходит проверки и исправления! Точность бота составляет 92%!\nЧтобы достичь максимальной прибыли, следуйте нашим прогнозам\n\nПодписавшись на канал, зарегистрировавшись на 1win с нашим промокодом, нажимаете получить сигнал, жестко лутаете профит 👑\n\n❗️Без регистрации и промокода доступ к сигналам не будет открыт❗️"
     },
     "hi": {
         "welcome": "स्वागत है! कृपया अपनी भाषा चुनें:",
@@ -51,7 +53,8 @@
         "next": "➡️ अगला",
         "back": "⬅️ पीछे",
         "registration_message": "👑 नमस्ते! बॉट को सक्रिय करने के लिए 1WIN वेबसाइट पर त्वरित पंजीकरण करें (<a href=\"PERSONAL_LINK\">क्लिक करें</a>)\n\n⚠️ इस संदेश में दी गई लिंक का उपयोग करके नया खाता बनाना महत्वपूर्ण है! ऐसे फोन नंबर का उपयोग करें जो इस साइट पर पहले इस्तेमाल न हुआ हो, और सोशल मीडिया खातों का उपयोग न करें। यदि आपके पास पहले से 1WIN पर खाता है, तो कृपया लॉग आउट करें।\n\n1. बटन पर क्लिक करें: <a href=\"PERSONAL_LINK\">रजिस्टर करें</a> गुप्त मोड में, 1WIN वेबसाइट पर जाएं और नया खाता बनाएं। यदि साइट नहीं खुलती, तो VPN का उपयोग करें: Vpnify, Planet VPN, Hotspot VPN, आदि।",
-        "dep": "👑आरंभ करने से पहले आपको अपने खाते का बैलेंस भरना होगा। मैं कम से कम 2000 रूबल भरने की सलाह देता हूँ।"
+        "dep": "👑आरंभ करने से पहले आपको अपने खाते का बैलेंस भरना होगा। मैं कम से कम 2000 रूबल भरने की सलाह देता हूँ।",
+        "instructions": "🤖यह बॉट OpenAI न्यूरल नेटवर्क पर आधारित है!\n⚜️30,000 गेम्स पर प्रशिक्षित।\n\nयूज़र रोज़ाना 15-25% मुनाफ़ा कमा रहे हैं!\n\nसटीकता: 92%। संकेतों का पालन करें।\n\nचैनल सब्सक्राइब करें, प्रोमो कोड से रजिस्टर करें और सिग्नल पाएं 👑\n\n❗️बिना रजिस्ट्रेशन और कोड के सिग्नल नहीं मिलेगा❗️"
     },
     "id": {
         "welcome": "Selamat datang! Silakan pilih bahasa Anda:",
@@ -69,7 +72,8 @@
         "next": "➡️ Lanjut",
         "back": "⬅️ Kembali",
         "registration_message": "👑 Halo! Untuk mengaktifkan bot, lakukan pendaftaran cepat di situs web 1WIN (<a href=\"PERSONAL_LINK\">KLIK</a>)\n\n⚠️ Penting untuk membuat akun BARU menggunakan tautan dalam pesan ini! Gunakan nomor telepon yang belum pernah digunakan di situs ini sebelumnya, dan jangan gunakan akun media sosial. Jika Anda sudah memiliki akun di 1WIN, silakan keluar.\n\n1. Klik tombol: <a href=\"PERSONAL_LINK\">Daftar</a> dalam mode penyamaran, buka situs web 1WIN dan BUAT AKUN BARU. Jika situs tidak terbuka, coba gunakan VPN: Vpnify, Planet VPN, Hotspot VPN, dll.",
-        "dep": "👑Sebelum memulai, Anda perlu mengisi saldo akun Anda. Saya menyarankan untuk mengisi minimal 2.000 rubel."
+        "dep": "👑Sebelum memulai, Anda perlu mengisi saldo akun Anda. Saya menyarankan untuk mengisi minimal 2.000 rubel.",
+        "instructions": "🤖Bot ini dilatih dengan jaringan neural OpenAI!\n⚜️Dilatih dari 30.000 permainan 🎰.\n\nPengguna menghasilkan 15–25% per hari!\n\nAkurasi 92%. Ikuti sinyalnya.\n\nDaftar dengan kode promo dan tekan 'Dapatkan Sinyal' 👑\n\n❗️Tanpa pendaftaran & kode tidak ada akses❗️"
     },
     "pt": {
         "welcome": "Bem-vindo! Por favor selecione seu idioma:",
@@ -87,7 +91,8 @@
         "next": "➡️ Próximo",
         "back": "⬅️ Voltar",
         "registration_message": "👑 Olá! Para ativar o bot, faça um registro rápido no site 1WIN (<a href=\"PERSONAL_LINK\">CLIQUE</a>)\n\n⚠️ É importante criar uma NOVA conta usando o link nesta mensagem! Use um número de telefone que não tenha sido usado neste site antes e não use contas de redes sociais. Se você já tem uma conta no 1WIN, por favor, faça logout.\n\n1. Clique no botão: <a href=\"PERSONAL_LINK\">Registrar</a> no modo anônimo, acesse o site 1WIN e CRIE UMA NOVA CONTA. Se o site não abrir, tente usar uma VPN: Vpnify, Planet VPN, Hotspot VPN, etc.",
-        "dep": "👑Antes de começar, você precisa recarregar o saldo da sua conta. Recomendo recarregar com pelo menos 2.000 rublos."
+        "dep": "👑Antes de começar, você precisa recarregar o saldo da sua conta. Recomendo recarregar com pelo menos 2.000 rublos.",
+        "instructions": "🤖Bot treinado em rede neural OpenAI!\n⚜️Treinado com 30.000 jogos 🎰.\n\nUsuários ganham 15-25% ao dia!\n\nPrecisão de 92%. Siga os sinais.\n\nCadastre-se com nosso código, clique em sinal e lucre 👑\n\n❗️Registro obrigatório com código promocional❗️"
     },
     "vi": {
         "welcome": "Chào mừng! Vui lòng chọn ngôn ngữ của bạn:",
@@ -105,7 +110,8 @@
         "next": "➡️ Tiếp",
         "back": "⬅️ Quay lại",
         "registration_message": "👑 Xin chào! Để kích hoạt bot, hãy hoàn tất đăng ký nhanh trên trang web 1WIN (<a href=\"PERSONAL_LINK\">NHẤN</a>)\n\n⚠️ Điều quan trọng là phải tạo tài khoản MỚI bằng liên kết trong tin nhắn này! Sử dụng số điện thoại chưa từng được sử dụng trên trang web này trước đây và không sử dụng tài khoản mạng xã hội. Nếu bạn đã có tài khoản trên 1WIN, vui lòng đăng xuất.\n\n1. Nhấn vào nút: <a href=\"PERSONAL_LINK\">Đăng ký</a> ở chế độ ẩn danh, truy cập trang web 1WIN và TẠO TÀI KHOẢN MỚI. Nếu trang web không mở, hãy thử sử dụng VPN: Vpnify, Planet VPN, Hotspot VPN, v.v.",
-        "dep": "👑Trước khi bắt đầu, bạn cần nạp tiền vào tài khoản. Tôi khuyên bạn nên nạp ít nhất 2.000 rúp."
+        "dep": "👑Trước khi bắt đầu, bạn cần nạp tiền vào tài khoản. Tôi khuyên bạn nên nạp ít nhất 2.000 rúp.",
+        "instructions": "🤖Bot được huấn luyện bằng mạng nơ-ron của OpenAI!\n⚜️Huấn luyện với 30.000 trò chơi 🎰.\n\nNgười dùng lãi 15–25% mỗi ngày!\n\nĐộ chính xác 92%. Làm theo tín hiệu.\n\nĐăng ký bằng mã khuyến mãi để nhận tín hiệu 👑\n\n❗️Không đăng ký, không mã — không tín hiệu❗️"
     },
     "uk": {
         "welcome": "Ласкаво просимо! Будь ласка, оберіть мову:",
@@ -123,7 +129,8 @@
         "next": "➡️ Далі",
         "back": "⬅️ Назад",
         "registration_message": "👑 Привіт! Для активації бота пройди швидку реєстрацію на сайті 1WIN (<a href=\"PERSONAL_LINK\">КЛІК</a>)\n\n⚠️ Важливо створити НОВИЙ акаунт за посиланням у цьому повідомленні! Використовуй номер телефону, який раніше не використовувався на цьому сайті, і не використовуй соціальні мережі. Якщо у тебе вже є акаунт на 1WIN, вийди з нього.\n\n1. Натисни на кнопку: <a href=\"PERSONAL_LINK\">Зареєструватися</a> у режимі інкогніто, перейди на сайт 1WIN і СТВОРИ НОВИЙ АКАУНТ. Якщо сайт не відкривається, спробуй використовувати VPN: Vpnify, Planet VPN, Hotspot VPN тощо.",
-        "dep": "👑Перед стартом необхідно поповнити баланс свого акаунта. Рекомендую поповнювати від 2000 рублів."
+        "dep": "👑Перед стартом необхідно поповнити баланс свого акаунта. Рекомендую поповнювати від 2000 рублів.",
+        "instructions": "🤖Бот навчений на кластерній нейромережі OpenAI!\n⚜️Навчений на 🎰30 000 іграх.\n\nКористувачі заробляють 15–25% щодня!\n\nТочність: 92%. Дотримуйтесь прогнозів.\n\nПідпишіться, зареєструйтесь з промокодом, тисніть сигнал і забирайте прибуток 👑\n\n❗️Без реєстрації та промокоду доступ закритий❗️"
     },
     "fr": {
         "welcome": "Bienvenue! Veuillez sélectionner votre langue:",
@@ -141,6 +148,7 @@
         "next": "➡️ Suivant",
         "back": "⬅️ Retour",
         "registration_message": "👑 Bonjour ! Pour activer le bot, effectuez une inscription rapide sur le site 1WIN (<a href=\"PERSONAL_LINK\">CLIQUEZ</a>)\n\n⚠️ Il est important de créer un NOUVEAU compte en utilisant le lien dans ce message ! Utilisez un numéro de téléphone qui n’a jamais été utilisé sur ce site auparavant et n’utilisez pas de comptes de réseaux sociaux. Si vous avez déjà un compte sur 1WIN, veuillez vous déconnecter.\n\n1. Cliquez sur le bouton : <a href=\"PERSONAL_LINK\">S’inscrire</a> en mode incognito, accédez au site 1WIN et CRÉEZ UN NOUVEAU COMPTE. Si le site ne s’ouvre pas, essayez d’utiliser un VPN : Vpnify, Planet VPN, Hotspot VPN, etc.",
-        "dep": "👑Avant de commencer, vous devez recharger le solde de votre compte. Je recommande de recharger avec au moins 2000 roubles."
+        "dep": "👑Avant de commencer, vous devez recharger le solde de votre compte. Je recommande de recharger avec au moins 2000 roubles.",
+        "instructions": "🤖Le bot est basé sur un réseau neuronal OpenAI!\n⚜️Entraîné sur 🎰30 000 parties.\n\nLes utilisateurs gagnent 15-25% par jour!\n\nPrécision: 92%. Suivez les signaux.\n\nAbonnez-vous, inscrivez-vous avec le code promo et recevez des signaux 👑\n\n❗️Inscription et promo obligatoires❗️"
     }
 }
