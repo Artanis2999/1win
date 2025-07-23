@@ -45,6 +45,15 @@
             "dep": false,
             "admin": false,
             "amount": 0
+        },
+        {
+            "id": 1206740246,
+            "name": "Mihail",
+            "username": "Chekrygin_Misha",
+            "reg": false,
+            "dep": false,
+            "admin": false,
+            "amount": 0
         }
     ]
 }
