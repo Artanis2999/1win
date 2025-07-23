@@ -58,6 +58,15 @@ async def show_main_menu(chat_id: int, lang: str = "en", message_id: int = None)
     translations = TRANSLATIONS.get(lang, TRANSLATIONS["en"])
 
     try:
+        has_dep = False
+
+        with open(USERS_FILE, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            for u in data.get("users", []):
+                if u["id"] == chat_id:
+                    has_dep = u.get("dep", False)
+                    break
+
         # Получаем роль из users.json
         is_admin = False
         with open(USERS_FILE, 'r', encoding='utf-8') as f:
@@ -76,10 +85,8 @@ async def show_main_menu(chat_id: int, lang: str = "en", message_id: int = None)
             types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
         )
         builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
-        builder.row(types.KeyboardButton(
-            text="🚀 Получить сигнал",
-            web_app=WebAppInfo(url=web_url)
-        ))
+        builder.row(types.KeyboardButton(text="🚀 Получить сигнал"))
+
 
         if message_id:
             await bot.delete_message(chat_id=chat_id, message_id=message_id)
@@ -104,10 +111,7 @@ async def show_main_menu(chat_id: int, lang: str = "en", message_id: int = None)
             types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
         )
         builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
-        builder.row(types.KeyboardButton(
-            text="🚀 Получить сигнал",
-            web_app=WebAppInfo(url="https://avia1win.netlify.app/frontend")
-        ))
+        builder.row(types.KeyboardButton(text="🚀 Получить сигнал"))
 
         if message_id:
             await bot.delete_message(chat_id=chat_id, message_id=message_id)
@@ -130,10 +134,7 @@ async def show_main_menu(chat_id: int, lang: str = "en", message_id: int = None)
             types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
         )
         builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
-        builder.row(types.KeyboardButton(
-            text="🚀 Получить сигнал",
-            web_app=WebAppInfo(url="https://avia1win.netlify.app")  # ← сюда тоже
-        ))
+        builder.row(types.KeyboardButton(text="🚀 Получить сигнал"))
 
         if message_id:
             
@@ -376,24 +377,22 @@ async def process_algo_button(message: types.Message):
     await bot.delete_message(chat_id=user_id, message_id=message.message_id)
     user_data[user_id]["last_message_id"] = await show_main_menu(user_id, lang)
 
-@dp.message(lambda message: message.text in [TRANSLATIONS[lang]["instr"] for lang in LANGUAGES])
-async def process_instruction(message: types.Message):
-    print("testtttt")
+@dp.message(lambda message: message.text in [TRANSLATIONS[lang]["support"] for lang in LANGUAGES])
+async def process_support(message: types.Message):
     user_id = message.from_user.id
     lang = user_data.get(user_id, {}).get("lang", "en")
     translations = TRANSLATIONS.get(lang, TRANSLATIONS["en"])
+
     builder = ReplyKeyboardBuilder()
     builder.row(
         types.KeyboardButton(text=translations.get("reg", "📝 Registration")),
         types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
     )
     builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
-    builder.row(types.KeyboardButton(
-        text="🚀 Получить сигнал",
-        web_app=WebAppInfo(url="https://avia1win.netlify.app/frontend")
-    ))
+    builder.row(types.KeyboardButton(text="🚀 Получить сигнал"))
+
     await message.answer(
-        translations.get("instructions", "Инструкция недоступна"),
+        translations.get("support_text", "Свяжитесь с поддержкой: @maboy_poderzhka"),
         reply_markup=builder.as_markup(resize_keyboard=True)
     )
 
@@ -425,51 +424,67 @@ async def main():
     await set_bot_description()
     await dp.start_polling(bot)
 
+@dp.message(lambda message: message.text in [TRANSLATIONS[lang]["instr"] for lang in LANGUAGES])
+async def process_instruction(message: types.Message):
+    user_id = message.from_user.id
+    lang = user_data.get(user_id, {}).get("lang", "en") 
+    translations = TRANSLATIONS.get(lang, TRANSLATIONS["en"])
+
+    builder = ReplyKeyboardBuilder()
+    builder.row(
+        types.KeyboardButton(text=translations.get("reg", "📝 Registration")),
+        types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
+    )
+    builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
+    builder.row(types.KeyboardButton(text="🚀 Получить сигнал"))
+
+    await message.answer(
+        translations.get("instructions", "Инструкция недоступна"),
+        reply_markup=builder.as_markup(resize_keyboard=True)
+    )
+
+@dp.message(lambda message: message.text == "🚀 Получить сигнал")
+async def handle_signal_button(message: types.Message):
+    user_id = message.from_user.id
+    lang = user_data.get(user_id, {}).get("lang", "en")
+    translations = TRANSLATIONS.get(lang, TRANSLATIONS["en"])
+
+    # Читаем users.json
+    try:
+        with open(USERS_FILE, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            for u in data.get("users", []):
+                if u["id"] == user_id:
+                    is_admin = u.get("admin", False)
+                    has_dep = u.get("dep", False)
+                    break
+            else:
+                has_dep = False
+                is_admin = False
+    except Exception as e:
+        logging.error(f"Ошибка чтения users.json: {e}")
+        has_dep = False
+        is_admin = False
+
+    if has_dep or is_admin:
+        url = "https://avia1win.netlify.app/frontend/admin" if is_admin else "https://avia1win.netlify.app/frontend"
+        await message.answer(
+            f"✅ {translations.get('access_granted', 'Access granted!')}",
+            reply_markup=types.ReplyKeyboardMarkup(
+                keyboard=[
+                    [types.KeyboardButton(
+                        text="Открыть мини-апп", web_app=WebAppInfo(url=url)
+                    )],
+                    [types.KeyboardButton(text=translations["back"])]
+                ],
+                resize_keyboard=True
+            )
+        )
+    else:
+        await message.answer("❌ Чтобы получить доступ, нужно зарегистрироваться и пополнить счёт.")
+
+
+
 if __name__ == "__main__":
     asyncio.run(main())  
 
-@dp.message(lambda message: message.text in [TRANSLATIONS[lang]["instr"] for lang in LANGUAGES])
-async def process_instruction(message: types.Message):
-    print("testtttt")
-    user_id = message.from_user.id
-    lang = user_data.get(user_id, {}).get("lang", "en")
-    translations = TRANSLATIONS.get(lang, TRANSLATIONS["en"])
-
-    builder = ReplyKeyboardBuilder()
-    builder.row(
-        types.KeyboardButton(text=translations.get("reg", "📝 Registration")),
-        types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
-    )
-    builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
-    builder.row(types.KeyboardButton(
-        text="🚀 Получить сигнал",
-        web_app=WebAppInfo(url="https://avia1win.netlify.app/frontend")
-    ))
-
-    await message.answer(
-        translations.get("instructions", "Инструкция недоступна"),
-        reply_markup=builder.as_markup(resize_keyboard=True)
-    )
-
-
-@dp.message(lambda message: message.text in [TRANSLATIONS[lang]["support"] for lang in LANGUAGES])
-async def process_support(message: types.Message):
-    user_id = message.from_user.id
-    lang = user_data.get(user_id, {}).get("lang", "en")
-    translations = TRANSLATIONS.get(lang, TRANSLATIONS["en"])
-
-    builder = ReplyKeyboardBuilder()
-    builder.row(
-        types.KeyboardButton(text=translations.get("reg", "📝 Registration")),
-        types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
-    )
-    builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
-    builder.row(types.KeyboardButton(
-        text="🚀 Получить сигнал",
-        web_app=WebAppInfo(url="https://avia1win.netlify.app/frontend")
-    ))
-
-    await message.answer(
-        translations.get("instructions", "Инструкция недоступна"),
-        reply_markup=builder.as_markup(resize_keyboard=True)
-    )
