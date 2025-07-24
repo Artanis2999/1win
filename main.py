@@ -85,7 +85,7 @@ async def show_main_menu(chat_id: int, lang: str = "en", message_id: int = None)
             types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
         )
         builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
-        builder.row(types.KeyboardButton(text="🚀 Получить сигнал"))
+        builder.row(types.KeyboardButton(text="🚀 Get a signal"))
 
 
         if message_id:
@@ -111,7 +111,7 @@ async def show_main_menu(chat_id: int, lang: str = "en", message_id: int = None)
             types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
         )
         builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
-        builder.row(types.KeyboardButton(text="🚀 Получить сигнал"))
+        builder.row(types.KeyboardButton(text="🚀 Get a signal"))
 
         if message_id:
             await bot.delete_message(chat_id=chat_id, message_id=message_id)
@@ -134,7 +134,7 @@ async def show_main_menu(chat_id: int, lang: str = "en", message_id: int = None)
             types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
         )
         builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
-        builder.row(types.KeyboardButton(text="🚀 Получить сигнал"))
+        builder.row(types.KeyboardButton(text="🚀 Get a signal"))
 
         if message_id:
             
@@ -389,7 +389,7 @@ async def process_support(message: types.Message):
         types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
     )
     builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
-    builder.row(types.KeyboardButton(text="🚀 Получить сигнал"))
+    builder.row(types.KeyboardButton(text="🚀 Get a signal"))
 
     await message.answer(
         translations.get("support_text", "Свяжитесь с поддержкой: @maboy_poderzhka"),
@@ -436,14 +436,14 @@ async def process_instruction(message: types.Message):
         types.KeyboardButton(text=translations.get("instr", "📚 Instructions"))
     )
     builder.row(types.KeyboardButton(text=translations.get("support", "🛠 Support")))
-    builder.row(types.KeyboardButton(text="🚀 Получить сигнал"))
+    builder.row(types.KeyboardButton(text="🚀 Get a signal"))
 
     await message.answer(
         translations.get("instructions", "Инструкция недоступна"),
         reply_markup=builder.as_markup(resize_keyboard=True)
     )
 
-@dp.message(lambda message: message.text == "🚀 Получить сигнал")
+@dp.message(lambda message: message.text == "🚀 Get a signal")
 async def handle_signal_button(message: types.Message):
     user_id = message.from_user.id
     lang = user_data.get(user_id, {}).get("lang", "en")
@@ -473,7 +473,7 @@ async def handle_signal_button(message: types.Message):
             reply_markup=types.ReplyKeyboardMarkup(
                 keyboard=[
                     [types.KeyboardButton(
-                        text="Открыть мини-апп", web_app=WebAppInfo(url=url)
+                        text="open mini-app", web_app=WebAppInfo(url=url)
                     )],
                     [types.KeyboardButton(text=translations["back"])]
                 ],
